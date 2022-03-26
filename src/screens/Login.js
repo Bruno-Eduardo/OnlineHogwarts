@@ -6,6 +6,9 @@ import {
   TextInput,
   View,
   Dimensions,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import EmptySpace from '../components/EmptySpace';
 
@@ -25,26 +28,33 @@ export default class Login extends React.Component {
     return (
       <View style={styles.mainView}>
         <ImageBackground
-          source={this.state.background}
+          source={require('../assets/images/background.jpg')}
           resizeMode="cover"
           style={styles.imageBackground}>
-          <View style={styles.titleView}>
-            <Text style={styles.titleText}>{`WELCOME TO HOGWARTS`}</Text>
-          </View>
-          <EmptySpace/>
-          <View style={styles.textInputView}>
-            <TextInput
-              style={styles.textInput}
-              keyboardType="email-address"
-              placeholder={'WIZARD NAME'}
-            />
-            <TextInput style={styles.textInput} placeholder={'PASSWORD'} />
-            <HogwartsButton
-              title="LOGIN"
-              screen="Home"
-              navigation={this.props.navigation}
-            />
-          </View>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={{height: '100%'}}>
+              <View style={styles.titleView}>
+                <Text style={styles.titleText}>{`WELCOME TO HOGWARTS`}</Text>
+              </View>
+              <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+              </KeyboardAvoidingView>
+              <View style={{height: 100}} />
+              <View style={styles.textInputView}>
+                <TextInput
+                  style={styles.textInput}
+                  keyboardType="email-address"
+                  placeholder={'WIZARD NAME'}
+                />
+                <TextInput style={styles.textInput} placeholder={'PASSWORD'} />
+                <HogwartsButton
+                  title="LOGIN"
+                  screen="Home"
+                  navigation={this.props.navigation}
+                />
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
         </ImageBackground>
       </View>
     );
