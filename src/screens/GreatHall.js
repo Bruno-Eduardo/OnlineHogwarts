@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import CharsList from '../components/CharsList';
+import EmptySpace from '../components/EmptySpace';
 import HogwartsButton from '../components/HogwartsButton';
 import {CharsApi} from '../services/HarryCharsApi';
 
@@ -30,11 +31,11 @@ export default class GreatHall extends React.Component {
     return (
       <View style={styles.container}>
         <Text>GreatHall</Text>
-        <CharsList
-          chars={this.state.allChars}
-          navigation={this.props.navigation}
-        />
-        <View style={{height: 8}}></View>
+          <CharsList
+            chars={this.state.allChars}
+            navigation={this.props.navigation}
+          />
+        <EmptySpace/>
         <HogwartsButton
           title="Return"
           screen="Return"
@@ -47,6 +48,6 @@ export default class GreatHall extends React.Component {
 
 styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: '100%',
   },
 });

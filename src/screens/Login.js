@@ -7,6 +7,7 @@ import {
   View,
   Dimensions,
 } from 'react-native';
+import EmptySpace from '../components/EmptySpace';
 
 const screenSizeHeight = Dimensions.get('window').height;
 
@@ -30,7 +31,7 @@ export default class Login extends React.Component {
           <View style={styles.titleView}>
             <Text style={styles.titleText}>{`WELCOME TO HOGWARTS`}</Text>
           </View>
-          <View style={styles.dogface}></View>
+          <EmptySpace/>
           <View style={styles.textInputView}>
             <TextInput
               style={styles.textInput}
@@ -70,11 +71,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0.4)',
   },
+  space: {
+    flex: 0.5,
+  },
   textInputView: {
     flex: 2,
-  },
-  dogface: {
-    flex: 0.5,
   },
   textInput: {
     borderColor: '#777777',
@@ -82,16 +83,5 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginVertical: 8,
     backgroundColor: 'rgba(255,255,255,0.4)',
-  },
-  button: {
-    backgroundColor: '#7711AA',
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 16,
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: '600',
   },
 });

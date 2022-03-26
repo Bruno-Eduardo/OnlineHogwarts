@@ -4,6 +4,7 @@ import {CharsApi} from '../services/HarryCharsApi';
 
 import CharsList from '../components/CharsList';
 import HogwartsButton from '../components/HogwartsButton';
+import EmptySpace from '../components/EmptySpace';
 
 export default class CommonRoom extends React.Component {
   constructor(props) {
@@ -35,11 +36,12 @@ export default class CommonRoom extends React.Component {
           chars={this.state.houseChars}
           navigation={this.props.navigation}
         />
-        <HogwartsButton
-          title="Return"
-          screen="Return"
-          navigation={this.props.navigation}
-        />
+      <EmptySpace/>
+      <HogwartsButton
+        title="Return"
+        screen="Return"
+        navigation={this.props.navigation}
+      />
       </View>
     );
   }

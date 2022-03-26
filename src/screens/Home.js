@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
+import EmptySpace from '../components/EmptySpace';
 import HogwartsButton from '../components/HogwartsButton';
 
 export default class Home extends React.Component {
@@ -21,6 +22,7 @@ export default class Home extends React.Component {
           screen="CommonRoom"
           navigation={this.props.navigation}
         />
+        <EmptySpace/>
         <HogwartsButton
           title="Join Great Hall"
           screen="GreatHall"
