@@ -13,13 +13,13 @@ import HeaderWithSpell from '../components/HeaderWithSpell';
 const Stack = createNativeStackNavigator();
 
 const HeaderWithSpells = () => {
-    return (
-        <View style={{height: 8}}>
-            <Text style={{fontSize: 30, fontWeight: 'bold', color: '#7711AA'}}>
-                Spells
-            </Text>
-        </View>
-    );
+  return (
+    <View style={{height: 8}}>
+      <Text style={{fontSize: 30, fontWeight: 'bold', color: '#7711AA'}}>
+        Spells
+      </Text>
+    </View>
+  );
 };
 
 const MyStack = () => {
@@ -34,7 +34,7 @@ const MyStack = () => {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ headerTitle: (props) => <HeaderWithSpell/>}}
+          options={{headerTitle: props => <HeaderWithSpell />}}
         />
         <Stack.Screen
           name="GreatHall"

@@ -2,13 +2,13 @@ import * as React from 'react';
 import {FlatList, TouchableOpacity, Text, View, StyleSheet} from 'react-native';
 
 export default class HeaderWithSpell extends React.Component {
-    render() {
-        return (
-          <View style={styles.header}>
-            <Text style={styles.headerText}>Spells here</Text>
-          </View>
-        );
-      }
+  render() {
+    return (
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Spells here</Text>
+      </View>
+    );
+  }
 }
 
 styles = StyleSheet.create({

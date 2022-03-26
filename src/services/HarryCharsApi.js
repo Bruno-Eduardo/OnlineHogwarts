@@ -32,9 +32,4 @@ const allCharactersFromGivenHouse = house => {
   return reponse;
 };
 
-export {
-  allCharacters,
-  allHouses,
-  allCharactersFromGivenHouse,
-  CharsApi,
-};
+export {allCharacters, allHouses, allCharactersFromGivenHouse, CharsApi};
