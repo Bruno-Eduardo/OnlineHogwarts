@@ -7,8 +7,11 @@ export default class CharsList extends React.Component {
       <View style={styles.Touchable}>
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate('Details', {item})}>
-          <Text style={styles.TextTitle}>    {`${item.name}`} </Text>
-          <Text style={styles.TextSubTitle}> {`colocar props encurtadas`} </Text>
+          <Text style={styles.TextTitle}> {`${item.name}`} </Text>
+          <Text style={styles.TextSubTitle}>
+            {' '}
+            {`colocar props encurtadas`}{' '}
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -16,7 +19,10 @@ export default class CharsList extends React.Component {
 
   render() {
     return (
-      <FlatList data={this.props.chars} renderItem={item => this.renderItem(item)} />
+      <FlatList
+        data={this.props.chars}
+        renderItem={item => this.renderItem(item)}
+      />
     );
   }
 }

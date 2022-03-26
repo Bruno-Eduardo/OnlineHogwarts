@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import CharsList from '../components/CharsList';
 import HogwartsButton from '../components/HogwartsButton';
-import { allCharactersHardCoded } from '../services/HarryCharsApi';
+import {CharsApi} from '../services/HarryCharsApi';
 
 export default class GreatHall extends React.Component {
   constructor(props) {
@@ -14,17 +14,27 @@ export default class GreatHall extends React.Component {
 
   componentDidMount = () => {
     this.getData();
-  }
+  };
 
-  getData() {
-    this.setState({allChars: allCharactersHardCoded()});
-  }
+  getData = () => {
+    CharsApi.get('/characters')
+      .then(response => {
+        this.setState({allChars: response.data});
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <Text>GreatHall</Text>
-        <CharsList chars={this.state.allChars} navigation={this.props.navigation}/>
+        <CharsList
+          chars={this.state.allChars}
+          navigation={this.props.navigation}
+        />
+        <View style={{height: 8}}></View>
         <HogwartsButton
           title="Return"
           screen="Return"
@@ -36,7 +46,7 @@ export default class GreatHall extends React.Component {
 }
 
 styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    }
+  container: {
+    flex: 1,
+  },
 });

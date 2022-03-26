@@ -1,6 +1,12 @@
 import * as React from 'react';
 import {
-  ImageBackground, StyleSheet, Text, TextInput, View, Dimensions} from 'react-native';
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Dimensions,
+} from 'react-native';
 
 const screenSizeHeight = Dimensions.get('window').height;
 
@@ -16,7 +22,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <View  style={styles.mainView}>
+      <View style={styles.mainView}>
         <ImageBackground
           source={this.state.background}
           resizeMode="cover"
@@ -31,7 +37,7 @@ export default class Login extends React.Component {
               keyboardType="email-address"
               placeholder={'WIZARD NAME'}
             />
-            <TextInput style={styles.textInput}  placeholder={'PASSWORD'} />
+            <TextInput style={styles.textInput} placeholder={'PASSWORD'} />
             <HogwartsButton
               title="LOGIN"
               screen="Home"

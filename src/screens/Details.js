@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import HogwartsButton from '../components/HogwartsButton';
 
-
 export default class Details extends React.Component {
   render() {
     const {item, navigation} = this.props.route.params;
@@ -11,8 +10,7 @@ export default class Details extends React.Component {
         <View style={styles.itemDetail}>
           <Text>{`Details do item: ${item.name}`}</Text>
           <Text>{`${item.size}`}</Text>
-          <View style={styles.space}>
-          </View>
+          <View style={styles.space}></View>
           <HogwartsButton
             title="Return"
             screen="Return"
