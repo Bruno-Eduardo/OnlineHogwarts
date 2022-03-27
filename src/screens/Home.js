@@ -1,21 +1,35 @@
 import * as React from 'react';
-import {Button, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {Button, Dimensions, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import EmptySpace from '../components/EmptySpace';
 import HogwartsButton from '../components/HogwartsButton';
 import {getHouse} from '../services/UserInforProvider';
+
+const screenSizeHeight = Dimensions.get('window').height;
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       house: getHouse(),
-      backgroundImage: require(`../assets/images/`+`ravenclaw`+`.jpg`),
     };
-    console.log(this.state.house);
-    console.log(`../assets/images/${this.state.house}.jpg`);
-    //console.log(require(`../assets/images/${this.state.house}.jpg`));
-    // nao pode alocar imagem dinamicamente assim! O react nao tera como saber se a imagem existe
-    
+    // switch case over houses and set background image with require to the background attribute
+    switch (this.state.house) {
+      case 'ravenclaw':
+        this.state.backgroundImage = require(`../assets/images/`+`ravenclaw`+`.jpg`);
+        break;
+      case 'hufflepuff':
+        this.state.backgroundImage = require(`../assets/images/`+`hufflepuff`+`.jpg`);
+        break;
+      case 'gryffindor':
+        this.state.backgroundImage = require(`../assets/images/`+`gryffindor`+`.jpg`);
+        break;
+      case 'slytherin':
+        this.state.backgroundImage = require(`../assets/images/`+`slytherin`+`.jpg`);
+        break;
+      default:
+        this.state.backgroundImage = require(`../assets/images/`+`ravenclaw`+`.jpg`);
+        break;
+    }
   }
 
   render() {
@@ -34,7 +48,6 @@ export default class Home extends React.Component {
 
         <Text>House: {getHouse()}</Text>
         <Text>Tela a ser implementada</Text>
-        <Button title="aaa" onPress={console.log(this.state.backgroundImage)} />
 
         <HogwartsButton
           title="Join Common Room"
@@ -54,6 +67,6 @@ export default class Home extends React.Component {
 
 styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: screenSizeHeight
   },
 });
