@@ -30,16 +30,16 @@ export default class GreatHall extends React.Component {
   render() {
     return (
       <ImageBackground
-      source={require('../assets/images/GreatHall.jpg')}
-      resizeMode="cover"
-      style={{flex:1, height: undefined, width: undefined}}>
+        source={require('../assets/images/GreatHall.jpg')}
+        resizeMode="cover"
+        style={{flex: 1, height: undefined, width: undefined}}>
         <View style={styles.container}>
           <Text>GreatHall</Text>
-            <CharsList
-              chars={this.state.allChars}
-              navigation={this.props.navigation}
-            />
-          <EmptySpace/>
+          <CharsList
+            chars={this.state.allChars}
+            navigation={this.props.navigation}
+          />
+          <EmptySpace />
           <HogwartsButton
             title="Return"
             screen="Return"

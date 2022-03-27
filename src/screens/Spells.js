@@ -19,6 +19,5 @@ export default class Spells extends React.Component {
 }
 
 styles = StyleSheet.create({
-  container: {
-  },
+  container: {},
 });

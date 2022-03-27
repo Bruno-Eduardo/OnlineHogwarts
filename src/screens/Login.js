@@ -37,8 +37,9 @@ export default class Login extends React.Component {
                 <Text style={styles.titleText}>{`WELCOME TO HOGWARTS`}</Text>
               </View>
               <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-              </KeyboardAvoidingView>
+                behavior={
+                  Platform.OS === 'ios' ? 'padding' : 'height'
+                }></KeyboardAvoidingView>
               <View style={{height: 100}} />
               <View style={styles.textInputView}>
                 <TextInput
@@ -81,10 +82,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0.4)',
   },
-  space: {
-  },
-  textInputView: {
-  },
+  space: {},
+  textInputView: {},
   textInput: {
     borderColor: '#777777',
     borderWidth: 3,

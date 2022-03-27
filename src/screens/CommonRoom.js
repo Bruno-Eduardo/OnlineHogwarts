@@ -5,7 +5,7 @@ import {CharsApi} from '../services/HarryCharsApi';
 import CharsList from '../components/CharsList';
 import HogwartsButton from '../components/HogwartsButton';
 import EmptySpace from '../components/EmptySpace';
-import { getHouse } from '../services/UserInforProvider';
+import {getHouse} from '../services/UserInforProvider';
 
 export default class CommonRoom extends React.Component {
   constructor(props) {
@@ -63,19 +63,19 @@ export default class CommonRoom extends React.Component {
       <ImageBackground
         source={this.state.backgroundImage}
         resizeMode="cover"
-        style={{flex:1, height: undefined, width: undefined}}>
+        style={{flex: 1, height: undefined, width: undefined}}>
         <View style={styles.container}>
           <Text>Common Room</Text>
           <CharsList
             chars={this.state.houseChars}
             navigation={this.props.navigation}
           />
-        <EmptySpace/>
-        <HogwartsButton
-          title="Return"
-          screen="Return"
-          navigation={this.props.navigation}
-        />
+          <EmptySpace />
+          <HogwartsButton
+            title="Return"
+            screen="Return"
+            navigation={this.props.navigation}
+          />
         </View>
       </ImageBackground>
     );
@@ -83,6 +83,5 @@ export default class CommonRoom extends React.Component {
 }
 
 styles = StyleSheet.create({
-  container: {
-  },
+  container: {},
 });

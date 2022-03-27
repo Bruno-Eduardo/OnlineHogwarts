@@ -54,7 +54,7 @@ export default class Home extends React.Component {
       <ImageBackground
         source={this.state.backgroundImage}
         resizeMode="cover"
-        style={{flex:1, height: undefined, width: undefined}}>
+        style={{flex: 1, height: undefined, width: undefined}}>
         <View style={styles.container}>
           <HogwartsButton
             title="Spells"
@@ -83,6 +83,5 @@ export default class Home extends React.Component {
 }
 
 styles = StyleSheet.create({
-  container: {
-  },
+  container: {},
 });
