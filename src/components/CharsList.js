@@ -27,7 +27,8 @@ export default class CharsList extends React.Component {
     );
   }
 }
-
+// TODO: change purple style to Hogwarts color
+// TODO: identify with this list has padding and apply to all screens
 const styles = StyleSheet.create({
   Touchable: {
     height: 100,

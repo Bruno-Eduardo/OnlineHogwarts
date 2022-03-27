@@ -21,7 +21,7 @@ export default class Details extends React.Component {
     );
   }
 }
-
+// TODO: change purple style to Hogwarts color
 styles = StyleSheet.create({
   itemDetail: {
     backgroundColor: 'rgba(138,90,162,0.4)',

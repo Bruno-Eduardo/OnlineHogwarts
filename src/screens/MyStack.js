@@ -13,6 +13,7 @@ import HeaderWithSpell from '../components/HeaderWithSpell';
 const Stack = createNativeStackNavigator();
 
 const HeaderWithSpells = () => {
+  //TODO: change purple style to Hogwarts color
   return (
     <View style={{height: 8}}>
       <Text style={{fontSize: 30, fontWeight: 'bold', color: '#7711AA'}}>

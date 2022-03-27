@@ -33,6 +33,7 @@ export default class HogwartsButton extends React.Component {
     );
   }
 }
+//TODO: change purple style to Hogwarts color
 
 const styles = StyleSheet.create({
   mainTheme: {
