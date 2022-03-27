@@ -49,21 +49,34 @@ export default class Home extends React.Component {
     }
   }
 
+  componentDidMount() {
+    console.log('rendsesred');
+  }
+
   render() {
     return (
       <ImageBackground
         source={this.state.backgroundImage}
         resizeMode="cover"
         style={{flex: 1, height: undefined, width: undefined}}>
-        <View style={styles.container}>
-          <HogwartsButton
-            title="Spells"
-            screen="Spells"
-            navigation={this.props.navigation}
-          />
+        <View style={{flex: 1}}>
+          <View style={{flexDirection: 'row', marginVertical: 20}}>
+            <View style={{flex: 4}}>
+              <Text style={styles.titleText}> Welcome again, $NOME </Text>
+            </View>
+            <View style={{flex: 1}}>
+              <HogwartsButton
+                title="Spells 🪄"
+                screen="Spells"
+                navigation={this.props.navigation}
+              />
+            </View>
+          </View>
 
-          <Text>House: {getHouse()}</Text>
-          <Text>Tela a ser implementada</Text>
+          <View style={{flex: 1}}>
+            <Text>House: {getHouse()}</Text>
+            <Text>Tela a ser implementada</Text>
+          </View>
 
           <HogwartsButton
             title="Join Common Room"
@@ -83,5 +96,13 @@ export default class Home extends React.Component {
 }
 
 styles = StyleSheet.create({
-  container: {},
+  titleText: {
+    textAlignVertical: 'center',
+    fontSize: 24,
+    color: 'white',
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'flex-start',
+    height: 40,
+  },
 });

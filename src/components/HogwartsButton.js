@@ -37,11 +37,13 @@ export default class HogwartsButton extends React.Component {
 
 const styles = StyleSheet.create({
   mainTheme: {
-    backgroundColor: '#7711AA',
+    backgroundColor: '#D3A625',
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 16,
+    borderRadius: 4,
+    borderColor: '#946b2f',
+    borderWidth: 2,
   },
   text: {
     color: 'white',

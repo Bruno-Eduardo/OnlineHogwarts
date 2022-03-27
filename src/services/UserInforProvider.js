@@ -1,5 +1,5 @@
 const getHouse = () => {
-  return 'gryffindor';
+  return 'slytherin';
 };
 
 export {getHouse};

@@ -46,17 +46,22 @@ export default class Details extends React.Component {
         source={this.state.backgroundImage}
         resizeMode="cover"
         style={{flex: 1, height: undefined, width: undefined}}>
-        <View style={{backgroundColor: 'rgba(68,95,36,0.4)', height: '100%'}}>
+        <View style={{backgroundColor: 'rgba(1, 1, 1, 0.3)', height: '100%'}}>
           <View style={styles.itemDetail}>
-            <Text>{`Details do item: ${item.name}`}</Text>
-            <Text>{`Details do item: ${this.state.house}`}</Text>
-            <Text>{`${item.size}`}</Text>
+            <Text style={styles.nameText}>{`${item.name}`}</Text>
+            <Text
+              style={
+                styles.infoText
+              }>{`Details do item: ${this.state.house}`}</Text>
+            <Text style={styles.infoText}>{`${item.size}`}</Text>
             <View style={styles.space}></View>
-            <HogwartsButton
-              title="Return"
-              screen="Return"
-              navigation={this.props.navigation}
-            />
+            <View style={styles.buttonContainer}>
+              <HogwartsButton
+                title="Return"
+                screen="Return"
+                navigation={this.props.navigation}
+              />
+            </View>
           </View>
         </View>
       </ImageBackground>
@@ -66,24 +71,27 @@ export default class Details extends React.Component {
 // TODO: change purple style to Hogwarts color
 styles = StyleSheet.create({
   itemDetail: {
-    backgroundColor: 'rgba(138,90,162,0.4)',
+    backgroundColor: 'rgba(1, 1, 1, 0.7)',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 180,
-    marginHorizontal: 80,
+    marginVertical: 100,
+    marginHorizontal: 20,
     borderWidth: 1,
     borderColor: 'black',
+    padding: 32,
   },
   space: {
     marginVertical: 20,
   },
-  returnButton: {
-    marginVertical: 10,
-    backgroundColor: '#7711AA',
-    height: 40,
-    width: 160,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 16,
+  buttonContainer: {
+    width: '100%',
+  },
+  nameText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 36,
+  },
+  infoText: {
+    color: 'white',
   },
 });

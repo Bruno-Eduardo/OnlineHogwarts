@@ -49,7 +49,7 @@ export default class CommonRoom extends React.Component {
   };
 
   getData = () => {
-    CharsApi.get('/characters')
+    CharsApi.get(`/characters/house/${this.state.house}`)
       .then(response => {
         this.setState({houseChars: response.data});
       })

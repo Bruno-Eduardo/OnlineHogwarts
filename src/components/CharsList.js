@@ -10,7 +10,7 @@ export default class CharsList extends React.Component {
           <Text style={styles.TextTitle}> {`${item.name}`} </Text>
           <Text style={styles.TextSubTitle}>
             {' '}
-            {`colocar props encurtadas`}{' '}
+            {`${item.house == '' ? 'Staff' : item.house}`}{' '}
           </Text>
         </TouchableOpacity>
       </View>
@@ -20,7 +20,7 @@ export default class CharsList extends React.Component {
   render() {
     return (
       <FlatList
-        style={{height: 500}}
+        style={{height: 590}}
         data={this.props.chars}
         renderItem={item => this.renderItem(item)}
       />
@@ -32,7 +32,7 @@ export default class CharsList extends React.Component {
 const styles = StyleSheet.create({
   Touchable: {
     height: 100,
-    backgroundColor: 'rgba(138,90,162,0.4)',
+    backgroundColor: 'rgba(255,255,255,0.75)',
     margin: 8,
   },
   TextTitle: {
@@ -40,11 +40,11 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#7711AA',
+    color: '#D3A625',
   },
   TextSubTitle: {
-    color: 'rgba(68,95,36,1)',
-    backgroundColor: 'rgba(255,255,255,0.4)',
+    color: 'white',
+    backgroundColor: 'rgba(211, 166, 37, 1)',
     margin: 2,
     textAlign: 'right',
     borderRadius: 2,
