@@ -1,23 +1,65 @@
 import * as React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import HogwartsButton from '../components/HogwartsButton';
 
 export default class Details extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      houseChars: [],
+      house: this.props.route.params.item.house.toLowerCase(),
+    };
+    // switch case over houses and set background image with require to the background attribute
+    switch (this.state.house) {
+      case 'ravenclaw':
+        this.state.backgroundImage = require(`../assets/images/` +
+          `ravenclaw` +
+          `.jpg`);
+        break;
+      case 'hufflepuff':
+        this.state.backgroundImage = require(`../assets/images/` +
+          `hufflepuff` +
+          `.jpg`);
+        break;
+      case 'gryffindor':
+        this.state.backgroundImage = require(`../assets/images/` +
+          `gryffindor` +
+          `.jpg`);
+        break;
+      case 'slytherin':
+        this.state.backgroundImage = require(`../assets/images/` +
+          `slytherin` +
+          `.jpg`);
+        break;
+      default:
+        this.state.backgroundImage = require(`../assets/images/` +
+          `ravenclaw` +
+          `.jpg`);
+        break;
+    }
+  }
+
   render() {
     const {item, navigation} = this.props.route.params;
     return (
-      <View style={{backgroundColor: 'rgba(68,95,36,0.4)', height: '100%'}}>
-        <View style={styles.itemDetail}>
-          <Text>{`Details do item: ${item.name}`}</Text>
-          <Text>{`${item.size}`}</Text>
-          <View style={styles.space}></View>
-          <HogwartsButton
-            title="Return"
-            screen="Return"
-            navigation={this.props.navigation}
-          />
+      <ImageBackground
+        source={this.state.backgroundImage}
+        resizeMode="cover"
+        style={{flex: 1, height: undefined, width: undefined}}>
+        <View style={{backgroundColor: 'rgba(68,95,36,0.4)', height: '100%'}}>
+          <View style={styles.itemDetail}>
+            <Text>{`Details do item: ${item.name}`}</Text>
+            <Text>{`Details do item: ${this.state.house}`}</Text>
+            <Text>{`${item.size}`}</Text>
+            <View style={styles.space}></View>
+            <HogwartsButton
+              title="Return"
+              screen="Return"
+              navigation={this.props.navigation}
+            />
+          </View>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
