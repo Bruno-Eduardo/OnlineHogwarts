@@ -34,7 +34,7 @@ const MyStack = () => {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{headerTitle: props => <HeaderWithSpell />}}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="GreatHall"

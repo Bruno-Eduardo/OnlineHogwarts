@@ -49,6 +49,5 @@ export default class CommonRoom extends React.Component {
 
 styles = StyleSheet.create({
   container: {
-    flex: 1,
   },
 });

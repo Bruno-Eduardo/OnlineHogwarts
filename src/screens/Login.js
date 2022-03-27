@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   titleView: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -82,10 +81,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.4)',
   },
   space: {
-    flex: 0.5,
   },
   textInputView: {
-    flex: 2,
   },
   textInput: {
     borderColor: '#777777',

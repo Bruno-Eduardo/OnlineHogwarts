@@ -24,7 +24,6 @@ export default class Details extends React.Component {
 
 styles = StyleSheet.create({
   itemDetail: {
-    flex: 1,
     backgroundColor: 'rgba(138,90,162,0.4)',
     alignItems: 'center',
     justifyContent: 'center',
@@ -37,7 +36,6 @@ styles = StyleSheet.create({
     marginVertical: 20,
   },
   returnButton: {
-    flex: 1,
     marginVertical: 10,
     backgroundColor: '#7711AA',
     height: 40,
