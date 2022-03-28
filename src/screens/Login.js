@@ -61,7 +61,6 @@ export default class Login extends React.Component {
     );
   }
 }
-//TODO: change purple style to Hogwarts color
 
 const styles = StyleSheet.create({
   mainView: {
