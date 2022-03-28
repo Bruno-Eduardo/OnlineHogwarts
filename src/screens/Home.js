@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import EmptySpace from '../components/EmptySpace';
+import HeaderText from '../components/HeaderText';
 import HogwartsButton from '../components/HogwartsButton';
 import {getHouse} from '../services/UserInforProvider';
 
@@ -18,6 +19,7 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       house: getHouse(),
+      name: 'NOME A SER IMPLEMENTADO',
     };
     // switch case over houses and set background image with require to the background attribute
     switch (this.state.house) {
@@ -62,7 +64,7 @@ export default class Home extends React.Component {
         <View style={{flex: 1}}>
           <View style={{flexDirection: 'row', marginVertical: 20}}>
             <View style={{flex: 4}}>
-              <Text style={styles.titleText}> Welcome again, $NOME </Text>
+              <HeaderText text='Welcome again, ' end={this.state.name} />
             </View>
             <View style={{flex: 1}}>
               <HogwartsButton
@@ -83,7 +85,6 @@ export default class Home extends React.Component {
             screen="CommonRoom"
             navigation={this.props.navigation}
           />
-          <EmptySpace />
           <HogwartsButton
             title="Join Great Hall"
             screen="GreatHall"
@@ -104,5 +105,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.4)',
     justifyContent: 'flex-start',
     height: 40,
+    margin: 8,
   },
 });
