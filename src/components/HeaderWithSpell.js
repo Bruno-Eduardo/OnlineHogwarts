@@ -11,7 +11,7 @@ export default class HeaderWithSpell extends React.Component {
   }
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   header: {
     height: 30,
     textAlign: 'right',

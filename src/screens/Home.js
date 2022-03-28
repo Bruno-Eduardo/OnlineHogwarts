@@ -95,7 +95,7 @@ export default class Home extends React.Component {
   }
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   titleText: {
     textAlignVertical: 'center',
     fontSize: 24,

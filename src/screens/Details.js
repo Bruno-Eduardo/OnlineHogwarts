@@ -69,7 +69,7 @@ export default class Details extends React.Component {
   }
 }
 // TODO: change purple style to Hogwarts color
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   itemDetail: {
     backgroundColor: 'rgba(1, 1, 1, 0.7)',
     alignItems: 'center',
