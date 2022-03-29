@@ -52,9 +52,11 @@ export default class Details extends React.Component {
             <Text style={styles.nameText}>{`${item.name}`}</Text>
 
             <View style={{flexDirection: 'row'}}>
-              <View style={{flex: item.image == '' ? 0.01 : 1}}>
+              <View style={{flex: item.image == '' ? 0 : 1}}>
                 <Image
-                  style={styles.tinyLogo}
+                  style={
+                    item.image == '' ? {width: 0, height: 0} : styles.tinyLogo
+                  }
                   source={
                     item.image == ''
                       ? require('../assets/images/empty.jpg')
