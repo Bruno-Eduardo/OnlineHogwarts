@@ -23,7 +23,7 @@ export default class Login extends React.Component {
     this.state = {
       failed_to_log: false,
     };
-  };
+  }
 
   render() {
     return (
@@ -53,7 +53,7 @@ export default class Login extends React.Component {
                   title="LOGIN"
                   screen="Home"
                   navigation={this.props.navigation}
-                  UserProps={'I was at Login, line 56'}
+                  UserProps={{name: 'Harry Potter', spellCount: 0}}
                 />
               </View>
             </View>
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0.4)',
+    textAlign: 'center',
   },
   space: {},
   textInputView: {},

@@ -17,10 +17,9 @@ const screenSizeHeight = Dimensions.get('window').height;
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.route.params.UserProps);
     this.state = {
       house: getHouse(),
-      name: 'NOME A SER IMPLEMENTADO',
+      name: this.props.route.params.UserProps.name,
     };
     // switch case over houses and set background image with require to the background attribute
     switch (this.state.house) {
@@ -65,39 +64,41 @@ export default class Home extends React.Component {
         <View style={{flex: 1}}>
           <View style={{flexDirection: 'row', marginVertical: 20}}>
             <View style={{flex: 4}}>
-              <HeaderText text='Welcome again, ' end={this.state.name} />
+              <Text style={styles.titleText}> Welcome, {this.state.name} </Text>
             </View>
             <View style={{flex: 1}}>
               <HogwartsButton
                 title="Spells 🪄"
                 screen="Spells"
                 navigation={this.props.navigation}
-                UserProps={'I was at Home, line 72'}
+                UserProps={this.props.route.params.UserProps}
               />
             </View>
           </View>
 
           <View style={{flex: 1}}>
-          <View style={{backgroundColor: 'rgba(1, 1, 1, 0.3)'}}>
-          <View style={styles.mainMsgContainer}>
-            <Text style={styles.mainMsgText}>House: {capitalizeFirstLetter(getHouse())}</Text>
-            <Text style={styles.mainMsgText}>Make new friends</Text>
-            <Text style={styles.mainMsgText}>Discover new spells</Text>
-          </View>
-          </View>
+            <View style={{backgroundColor: 'rgba(1, 1, 1, 0.3)'}}>
+              <View style={styles.mainMsgContainer}>
+                <Text style={styles.mainMsgText}>
+                  House: {capitalizeFirstLetter(getHouse())}
+                </Text>
+                <Text style={styles.mainMsgText}>Make new friends</Text>
+                <Text style={styles.mainMsgText}>Discover new spells</Text>
+              </View>
+            </View>
           </View>
 
           <HogwartsButton
             title="Join Common Room"
             screen="CommonRoom"
             navigation={this.props.navigation}
-            UserProps={'I was at Home, line 91'}
+            UserProps={this.props.route.params.UserProps}
           />
           <HogwartsButton
             title="Join Great Hall"
             screen="GreatHall"
             navigation={this.props.navigation}
-            UserProps={'I was at Home, line 97'}
+            UserProps={this.props.route.params.UserProps}
           />
         </View>
       </ImageBackground>
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 32,
-  }
+  },
 });
 
 function capitalizeFirstLetter(string) {

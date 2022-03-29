@@ -5,8 +5,13 @@ export default class TextIfDefined extends React.Component {
   // If the text prop is not empty, render the text, otherwise render nothing
 
   render() {
-    if (this.props.textValue != "") {
-      return <Text style={styles.titleText}> {this.props.textKey}: {String(this.props.textValue)}</Text>;
+    if (this.props.textValue != '') {
+      return (
+        <Text style={styles.titleText}>
+          {' '}
+          {this.props.textKey}: {String(this.props.textValue)}
+        </Text>
+      );
     } else {
       return null;
     }

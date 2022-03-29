@@ -1,5 +1,12 @@
 import * as React from 'react';
-import {Button, ImageBackground, StyleSheet, Text, View, Image} from 'react-native';
+import {
+  Button,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+} from 'react-native';
 import HogwartsButton from '../components/HogwartsButton';
 import TextIfDefined from '../components/TextIfDefined';
 
@@ -52,8 +59,15 @@ export default class Details extends React.Component {
             <Text style={styles.nameText}>{`${item.name}`}</Text>
 
             <View style={{flexDirection: 'row'}}>
-              <View style={{flex: item.image=="" ? 0.01 : 1}}>
-                <Image style={styles.tinyLogo} source={item.image==""  ? require('../assets/images/empty.jpg') : {uri: item.image}   }/> 
+              <View style={{flex: item.image == '' ? 0.01 : 1}}>
+                <Image
+                  style={styles.tinyLogo}
+                  source={
+                    item.image == ''
+                      ? require('../assets/images/empty.jpg')
+                      : {uri: item.image}
+                  }
+                />
               </View>
               <View style={{flex: 1}}>
                 <TextIfDefined textKey="House" textValue={item.house} />
@@ -82,7 +96,7 @@ export default class Details extends React.Component {
                 title="Return"
                 screen="Return"
                 navigation={this.props.navigation}
-                UserProps={'I was at Detail, line 85'}
+                UserProps={this.props.route.params.UserProps}
               />
             </View>
           </View>

@@ -1,8 +1,49 @@
 import * as React from 'react';
-import {Button, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {
+  Button,
+  FlatList,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import CharsList from '../components/CharsList';
 import HogwartsButton from '../components/HogwartsButton';
+import SpellsList from '../components/SpellsList';
+import {allSpells, SpellsApi} from '../services/SpellsProvider';
 
 export default class Spells extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props.route.params.UserProps);
+    this.state = {
+      allSpells: [],
+      spellCount: this.props.route.params.UserProps.spellCount,
+    };
+  }
+
+  getData = () => {
+    SpellsApi.get()
+      .then(response => {
+        this.setState({
+          allSpells: response.data.slice(
+            0,
+            Math.min(this.state.spellCount, 92),
+          ),
+        });
+        console.log(this.state.allSpells);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  componentDidMount = () => {
+    this.getData();
+    console.log(this.state.allSpells);
+    console.log('end mount');
+  };
+
   render() {
     return (
       <ImageBackground
@@ -12,11 +53,15 @@ export default class Spells extends React.Component {
         <View style={styles.container}>
           <Text>Spells</Text>
           <Text>Lista a ser implementada</Text>
+          <SpellsList
+            chars={this.state.allSpells}
+            navigation={this.props.navigation}
+          />
           <HogwartsButton
             title="Return"
             screen="Return"
             navigation={this.props.navigation}
-            UserProps={'I was at Spells, line 19'}
+            UserProps={this.props.route.params.UserProps}
           />
         </View>
       </ImageBackground>

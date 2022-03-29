@@ -75,7 +75,7 @@ export default class CommonRoom extends React.Component {
             title="Return"
             screen="Return"
             navigation={this.props.navigation}
-            UserProps={'I was at CommonRoom, line 78'}
+            UserProps={this.props.route.params.UserProps}
           />
         </View>
       </ImageBackground>
