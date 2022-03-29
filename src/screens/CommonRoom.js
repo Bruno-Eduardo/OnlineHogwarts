@@ -87,9 +87,6 @@ export default class CommonRoom extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 8,
-    height: 200,
-    fontSize: 20,
-    color: 'white',
+    height: '100%',
   },
 });
