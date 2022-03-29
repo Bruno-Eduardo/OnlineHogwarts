@@ -48,14 +48,18 @@ export default class Login extends React.Component {
                   style={styles.textInput}
                   keyboardType="email-address"
                   placeholder={'WIZARD NAME'}
-                  onChangeText={(name) => this.setState({name})}
+                  onChangeText={name => this.setState({name})}
                 />
                 <TextInput style={styles.textInput} placeholder={'PASSWORD'} />
                 <HogwartsButton
                   title="LOGIN"
                   screen="Home"
                   navigation={this.props.navigation}
-                  UserProps={{name: this.state.name, spellCount: 0, house: 'Gryffindor'}}
+                  UserProps={{
+                    name: this.state.name,
+                    spellCount: 0,
+                    house: 'Gryffindor',
+                  }}
                 />
               </View>
             </View>

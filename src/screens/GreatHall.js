@@ -37,7 +37,7 @@ export default class GreatHall extends React.Component {
         resizeMode="cover"
         style={{flex: 1, height: undefined, width: undefined}}>
         <View style={styles.container}>
-          <HeaderText > Great Hall  </HeaderText>
+          <HeaderText> Great Hall </HeaderText>
           <CharsList
             chars={this.state.allChars}
             navigation={this.props.navigation}

@@ -67,7 +67,7 @@ export default class CommonRoom extends React.Component {
         resizeMode="cover"
         style={{flex: 1, height: undefined, width: undefined}}>
         <View style={styles.container}>
-          <HeaderText > Common Room  </HeaderText>
+          <HeaderText> Common Room </HeaderText>
           <CharsList
             chars={this.state.houseChars}
             navigation={this.props.navigation}

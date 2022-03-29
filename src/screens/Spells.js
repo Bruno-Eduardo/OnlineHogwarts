@@ -48,7 +48,7 @@ export default class Spells extends React.Component {
         resizeMode="cover"
         style={{flex: 1, height: undefined, width: undefined}}>
         <View style={styles.container}>
-          <HeaderText > Spells  </HeaderText>
+          <HeaderText> Spells </HeaderText>
           <SpellsList
             chars={this.state.allSpells}
             navigation={this.props.navigation}

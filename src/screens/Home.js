@@ -16,7 +16,8 @@ const screenSizeHeight = Dimensions.get('window').height;
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    let index = this.props.route.params.UserProps.name.toUpperCase().charCodeAt(0)%4;
+    let index =
+      this.props.route.params.UserProps.name.toUpperCase().charCodeAt(0) % 4;
     let houses = ['gryffindor', 'hufflepuff', 'ravenclaw', 'slytherin'];
 
     this.state = {
@@ -55,8 +56,7 @@ export default class Home extends React.Component {
     this.props.route.params.UserProps.house = this.state.house;
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
     return (
@@ -67,7 +67,7 @@ export default class Home extends React.Component {
         <View style={{flex: 1}}>
           <View style={{flexDirection: 'row', marginVertical: 20}}>
             <View style={{flex: 4}}>
-              <HeaderText > Welcome, {this.state.name}  </HeaderText>
+              <HeaderText> Welcome, {this.state.name} </HeaderText>
             </View>
             <View style={{flex: 1}}>
               <HogwartsButton
