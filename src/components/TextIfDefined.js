@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 
 export default class TextIfDefined extends React.Component {
   // If the text prop is not empty, render the text, otherwise render nothing

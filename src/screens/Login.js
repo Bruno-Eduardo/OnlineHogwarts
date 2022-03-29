@@ -10,13 +10,10 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
-import EmptySpace from '../components/EmptySpace';
 
 const screenSizeHeight = Dimensions.get('window').height;
 
 import HogwartsButton from '../components/HogwartsButton';
-
-const UserProps = 100;
 export default class Login extends React.Component {
   constructor(props) {
     super(props);

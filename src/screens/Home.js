@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {
-  Button,
   Dimensions,
   ImageBackground,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import EmptySpace from '../components/EmptySpace';
 import HeaderText from '../components/HeaderText';
 import HogwartsButton from '../components/HogwartsButton';
 

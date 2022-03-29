@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {ImageBackground, StyleSheet, View} from 'react-native';
 import CharsList from '../components/CharsList';
 import EmptySpace from '../components/EmptySpace';
 import HeaderText from '../components/HeaderText';

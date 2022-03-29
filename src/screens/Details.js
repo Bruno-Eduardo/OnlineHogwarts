@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-  Button,
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-} from 'react-native';
+import {ImageBackground, StyleSheet, Text, View, Image} from 'react-native';
 import HogwartsButton from '../components/HogwartsButton';
 import TextIfDefined from '../components/TextIfDefined';
 

@@ -1,17 +1,9 @@
 import * as React from 'react';
-import {
-  Button,
-  FlatList,
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import CharsList from '../components/CharsList';
+import {ImageBackground, StyleSheet, View} from 'react-native';
 import HeaderText from '../components/HeaderText';
 import HogwartsButton from '../components/HogwartsButton';
 import SpellsList from '../components/SpellsList';
-import {allSpells, SpellsApi} from '../services/SpellsProvider';
+import {SpellsApi} from '../services/SpellsProvider';
 
 export default class Spells extends React.Component {
   constructor(props) {

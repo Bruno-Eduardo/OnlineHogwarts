@@ -1,19 +1,8 @@
 import * as React from 'react';
-import {
-  Pressable,
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
-import * as Animatable from 'react-native-animatable';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 export default class HogwartsButton extends React.Component {
-  animatedPress = () => {
-    this.setState({
-      animation: 'rubberBand',
-    });
-
+  onPressedButton = () => {
     const {screen, navigation, UserProps} = this.props;
     if (screen === 'Return') {
       navigation.goBack();
@@ -27,7 +16,7 @@ export default class HogwartsButton extends React.Component {
     return (
       <TouchableOpacity
         style={styles.mainTheme}
-        onPress={() => this.animatedPress()}>
+        onPress={() => this.onPressedButton()}>
         <Text style={styles.text}>{`${title}`}</Text>
       </TouchableOpacity>
     );

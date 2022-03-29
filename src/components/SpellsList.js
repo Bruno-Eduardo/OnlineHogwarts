@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FlatList, TouchableOpacity, Text, View, StyleSheet} from 'react-native';
+import {FlatList, Text, View, StyleSheet} from 'react-native';
 
 export default class SpellsList extends React.Component {
   renderItem = ({item}) => {

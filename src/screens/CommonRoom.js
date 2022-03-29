@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {ImageBackground, StyleSheet, View} from 'react-native';
 import {CharsApi} from '../services/HarryCharsApi';
 
 import CharsList from '../components/CharsList';
