@@ -1,43 +1,66 @@
 import * as React from 'react';
 import {
-  ImageBackground, StyleSheet, Text, TextInput, View, Dimensions} from 'react-native';
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Dimensions,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 
 const screenSizeHeight = Dimensions.get('window').height;
 
 import HogwartsButton from '../components/HogwartsButton';
-
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       failed_to_log: false,
+      name: 'Harry Potter',
     };
   }
 
   render() {
     return (
-      <View  style={styles.mainView}>
+      <View style={styles.mainView}>
         <ImageBackground
-          source={this.state.background}
+          source={require('../assets/images/background.jpg')}
           resizeMode="cover"
           style={styles.imageBackground}>
-          <View style={styles.titleView}>
-            <Text style={styles.titleText}>{`WELCOME TO HOGWARTS`}</Text>
-          </View>
-          <View style={styles.dogface}></View>
-          <View style={styles.textInputView}>
-            <TextInput
-              style={styles.textInput}
-              keyboardType="email-address"
-              placeholder={'WIZARD NAME'}
-            />
-            <TextInput style={styles.textInput}  placeholder={'PASSWORD'} />
-            <HogwartsButton
-              title="LOGIN"
-              screen="Home"
-              navigation={this.props.navigation}
-            />
-          </View>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={{height: '100%'}}>
+              <View style={styles.titleView}>
+                <Text style={styles.titleText}>{`WELCOME TO HOGWARTS`}</Text>
+              </View>
+              <KeyboardAvoidingView
+                behavior={
+                  Platform.OS === 'ios' ? 'padding' : 'height'
+                }></KeyboardAvoidingView>
+              <View style={{height: 100}} />
+              <View style={styles.textInputView}>
+                <TextInput
+                  style={styles.textInput}
+                  keyboardType="email-address"
+                  placeholder={'WIZARD NAME'}
+                  onChangeText={name => this.setState({name})}
+                />
+                <TextInput style={styles.textInput} placeholder={'PASSWORD'} />
+                <HogwartsButton
+                  title="LOGIN"
+                  screen="Home"
+                  navigation={this.props.navigation}
+                  UserProps={{
+                    name: this.state.name,
+                    spellCount: 0,
+                    house: 'Gryffindor',
+                  }}
+                />
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
         </ImageBackground>
       </View>
     );
@@ -54,7 +77,6 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   titleView: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -63,29 +85,15 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     backgroundColor: 'rgba(0,0,0,0.4)',
+    textAlign: 'center',
   },
-  textInputView: {
-    flex: 2,
-  },
-  dogface: {
-    flex: 0.5,
-  },
+  space: {},
+  textInputView: {},
   textInput: {
     borderColor: '#777777',
     borderWidth: 3,
-    borderRadius: 16,
+    borderRadius: 4,
     marginVertical: 8,
     backgroundColor: 'rgba(255,255,255,0.4)',
-  },
-  button: {
-    backgroundColor: '#7711AA',
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 16,
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: '600',
   },
 });

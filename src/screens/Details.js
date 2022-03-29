@@ -1,51 +1,136 @@
 import * as React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text, View, Image} from 'react-native';
 import HogwartsButton from '../components/HogwartsButton';
-
+import TextIfDefined from '../components/TextIfDefined';
 
 export default class Details extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      houseChars: [],
+      house: this.props.route.params.item.house.toLowerCase(),
+    };
+    // switch case over houses and set background image with require to the background attribute
+    switch (this.state.house) {
+      case 'ravenclaw':
+        this.state.backgroundImage = require(`../assets/images/` +
+          `ravenclaw` +
+          `.jpg`);
+        break;
+      case 'hufflepuff':
+        this.state.backgroundImage = require(`../assets/images/` +
+          `hufflepuff` +
+          `.jpg`);
+        break;
+      case 'gryffindor':
+        this.state.backgroundImage = require(`../assets/images/` +
+          `gryffindor` +
+          `.jpg`);
+        break;
+      case 'slytherin':
+        this.state.backgroundImage = require(`../assets/images/` +
+          `slytherin` +
+          `.jpg`);
+        break;
+      default:
+        this.state.backgroundImage = require(`../assets/images/` +
+          `GreatHall` +
+          `.jpg`);
+        break;
+    }
+  }
+  //source={{uri: item.image}}
   render() {
     const {item, navigation} = this.props.route.params;
     return (
-      <View style={{backgroundColor: 'rgba(68,95,36,0.4)', height: '100%'}}>
-        <View style={styles.itemDetail}>
-          <Text>{`Details do item: ${item.name}`}</Text>
-          <Text>{`${item.size}`}</Text>
-          <View style={styles.space}>
+      <ImageBackground
+        source={this.state.backgroundImage}
+        resizeMode="cover"
+        style={{flex: 1, height: undefined, width: undefined}}>
+        <View style={{backgroundColor: 'rgba(1, 1, 1, 0.3)', height: '100%'}}>
+          <View style={styles.itemDetail}>
+            <Text style={styles.nameText}>{`${item.name}`}</Text>
+
+            <View style={{flexDirection: 'row'}}>
+              <View style={{flex: item.image == '' ? 0 : 1}}>
+                <Image
+                  style={
+                    item.image == '' ? {width: 0, height: 0} : styles.tinyLogo
+                  }
+                  source={
+                    item.image == ''
+                      ? require('../assets/images/empty.jpg')
+                      : {uri: item.image}
+                  }
+                />
+              </View>
+              <View style={{flex: 1}}>
+                <TextIfDefined textKey="House" textValue={item.house} />
+                <TextIfDefined textKey="Species" textValue={item.species} />
+                <TextIfDefined textKey="Gender" textValue={item.gender} />
+                <TextIfDefined
+                  textKey="Birth year"
+                  textValue={item.yearOfBirth}
+                />
+                <TextIfDefined textKey="Wizard" textValue={item.wizard} />
+                <TextIfDefined textKey="Ancestry" textValue={item.ancestry} />
+                <TextIfDefined textKey="Eye" textValue={item.eyeColour} />
+                <TextIfDefined textKey="Hair" textValue={item.hairColour} />
+                <TextIfDefined textKey="Patronus" textValue={item.patronus} />
+                <TextIfDefined
+                  textKey="Student"
+                  textValue={item.hogwartsStudent}
+                />
+                <TextIfDefined textKey="Staff" textValue={item.hogwartsStaff} />
+                <TextIfDefined textKey="Alive" textValue={item.alive} />
+              </View>
+            </View>
+
+            <View style={styles.buttonContainer}>
+              <HogwartsButton
+                title="Return"
+                screen="Return"
+                navigation={this.props.navigation}
+                UserProps={this.props.route.params.UserProps}
+              />
+            </View>
           </View>
-          <HogwartsButton
-            title="Return"
-            screen="Return"
-            navigation={this.props.navigation}
-          />
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   itemDetail: {
-    flex: 1,
-    backgroundColor: 'rgba(138,90,162,0.4)',
+    backgroundColor: 'rgba(1, 1, 1, 0.7)',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 180,
-    marginHorizontal: 80,
+    marginVertical: 100,
+    marginHorizontal: 20,
     borderWidth: 1,
     borderColor: 'black',
+    padding: 32,
   },
   space: {
     marginVertical: 20,
   },
-  returnButton: {
-    flex: 1,
-    marginVertical: 10,
-    backgroundColor: '#7711AA',
-    height: 40,
-    width: 160,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 16,
+  buttonContainer: {
+    width: '100%',
+  },
+  nameText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 36,
+    textAlign: 'center',
+  },
+  infoText: {
+    color: 'white',
+    fontSize: 16,
+  },
+  tinyLogo: {
+    width: '90%',
+    height: '70%',
+    padding: 4,
   },
 });
