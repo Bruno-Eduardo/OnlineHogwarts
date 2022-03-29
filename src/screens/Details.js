@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {Button, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {Button, ImageBackground, StyleSheet, Text, View, Image} from 'react-native';
 import HogwartsButton from '../components/HogwartsButton';
+import TextIfDefined from '../components/TextIfDefined';
 
 export default class Details extends React.Component {
   constructor(props) {
@@ -33,12 +34,12 @@ export default class Details extends React.Component {
         break;
       default:
         this.state.backgroundImage = require(`../assets/images/` +
-          `ravenclaw` +
+          `GreatHall` +
           `.jpg`);
         break;
     }
   }
-
+  //source={{uri: item.image}}
   render() {
     const {item, navigation} = this.props.route.params;
     return (
@@ -49,12 +50,33 @@ export default class Details extends React.Component {
         <View style={{backgroundColor: 'rgba(1, 1, 1, 0.3)', height: '100%'}}>
           <View style={styles.itemDetail}>
             <Text style={styles.nameText}>{`${item.name}`}</Text>
-            <Text
-              style={
-                styles.infoText
-              }>{`Details do item: ${this.state.house}`}</Text>
-            <Text style={styles.infoText}>{`${item.size}`}</Text>
-            <View style={styles.space}></View>
+
+            <View style={{flexDirection: 'row'}}>
+              <View style={{flex: item.image=="" ? 0.01 : 1}}>
+                <Image style={styles.tinyLogo} source={item.image==""  ? require('../assets/images/empty.jpg') : {uri: item.image}   }/> 
+              </View>
+              <View style={{flex: 1}}>
+                <TextIfDefined textKey="House" textValue={item.house} />
+                <TextIfDefined textKey="Species" textValue={item.species} />
+                <TextIfDefined textKey="Gender" textValue={item.gender} />
+                <TextIfDefined
+                  textKey="Birth year"
+                  textValue={item.yearOfBirth}
+                />
+                <TextIfDefined textKey="Wizard" textValue={item.wizard} />
+                <TextIfDefined textKey="Ancestry" textValue={item.ancestry} />
+                <TextIfDefined textKey="Eye" textValue={item.eyeColour} />
+                <TextIfDefined textKey="Hair" textValue={item.hairColour} />
+                <TextIfDefined textKey="Patronus" textValue={item.patronus} />
+                <TextIfDefined
+                  textKey="Student"
+                  textValue={item.hogwartsStudent}
+                />
+                <TextIfDefined textKey="Staff" textValue={item.hogwartsStaff} />
+                <TextIfDefined textKey="Alive" textValue={item.alive} />
+              </View>
+            </View>
+
             <View style={styles.buttonContainer}>
               <HogwartsButton
                 title="Return"
@@ -90,8 +112,15 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 36,
+    textAlign: 'center',
   },
   infoText: {
     color: 'white',
+    fontSize: 16,
+  },
+  tinyLogo: {
+    width: '90%',
+    height: '70%',
+    padding: 4,
   },
 });
