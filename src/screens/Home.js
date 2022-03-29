@@ -76,8 +76,13 @@ export default class Home extends React.Component {
           </View>
 
           <View style={{flex: 1}}>
-            <Text>House: {getHouse()}</Text>
-            <Text>Tela a ser implementada</Text>
+          <View style={{backgroundColor: 'rgba(1, 1, 1, 0.3)'}}>
+          <View style={styles.mainMsgContainer}>
+            <Text style={styles.mainMsgText}>House: {capitalizeFirstLetter(getHouse())}</Text>
+            <Text style={styles.mainMsgText}>Make new friends</Text>
+            <Text style={styles.mainMsgText}>Discover new spells</Text>
+          </View>
+          </View>
           </View>
 
           <HogwartsButton
@@ -107,4 +112,23 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 8,
   },
+  mainMsgContainer: {
+    backgroundColor: 'rgba(1, 1, 1, 0.7)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 100,
+    marginHorizontal: 20,
+    borderWidth: 1,
+    borderColor: 'black',
+    padding: 32,
+  },
+  mainMsgText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 32,
+  }
 });
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
