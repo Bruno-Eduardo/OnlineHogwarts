@@ -8,7 +8,6 @@ import {CharsApi} from '../services/HarryCharsApi';
 export default class GreatHall extends React.Component {
   constructor(props) {
     super(props);
-    //console.log(this.props.route.params.UserProps);
     this.props.route.params.UserProps.spellCount =
       this.props.route.params.UserProps.spellCount + 1;
     this.state = {

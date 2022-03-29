@@ -6,7 +6,6 @@ const SpellsApi = axios.create({
 });
 
 const allSpells = () => {
-  console.log('called');
   let reponse = '';
   SpellsApi.get()
     .then(res => {

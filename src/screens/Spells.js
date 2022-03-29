@@ -15,7 +15,6 @@ import {allSpells, SpellsApi} from '../services/SpellsProvider';
 export default class Spells extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.route.params.UserProps);
     this.state = {
       allSpells: [],
       spellCount: this.props.route.params.UserProps.spellCount,
@@ -31,7 +30,6 @@ export default class Spells extends React.Component {
             Math.min(this.state.spellCount, 92),
           ),
         });
-        console.log(this.state.allSpells);
       })
       .catch(error => {
         console.log(error);
@@ -40,8 +38,6 @@ export default class Spells extends React.Component {
 
   componentDidMount = () => {
     this.getData();
-    console.log(this.state.allSpells);
-    console.log('end mount');
   };
 
   render() {
