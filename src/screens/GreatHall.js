@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Button, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import CharsList from '../components/CharsList';
 import EmptySpace from '../components/EmptySpace';
+import HeaderText from '../components/HeaderText';
 import HogwartsButton from '../components/HogwartsButton';
 import {CharsApi} from '../services/HarryCharsApi';
 
@@ -36,7 +37,7 @@ export default class GreatHall extends React.Component {
         resizeMode="cover"
         style={{flex: 1, height: undefined, width: undefined}}>
         <View style={styles.container}>
-          <Text>GreatHall</Text>
+          <HeaderText > Great Hall  </HeaderText>
           <CharsList
             chars={this.state.allChars}
             navigation={this.props.navigation}

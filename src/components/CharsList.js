@@ -27,7 +27,7 @@ export default class CharsList extends React.Component {
   render() {
     return (
       <FlatList
-        style={{height: 570}}
+        style={{height: 540}}
         data={this.props.chars}
         renderItem={item => this.renderItem(item)}
       />

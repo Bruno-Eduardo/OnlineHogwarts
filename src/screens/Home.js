@@ -10,15 +10,17 @@ import {
 import EmptySpace from '../components/EmptySpace';
 import HeaderText from '../components/HeaderText';
 import HogwartsButton from '../components/HogwartsButton';
-import {getHouse} from '../services/UserInforProvider';
 
 const screenSizeHeight = Dimensions.get('window').height;
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
+    let index = this.props.route.params.UserProps.name.toUpperCase().charCodeAt(0)%4;
+    let houses = ['gryffindor', 'hufflepuff', 'ravenclaw', 'slytherin'];
+
     this.state = {
-      house: getHouse(),
+      house: houses[index],
       name: this.props.route.params.UserProps.name,
     };
     // switch case over houses and set background image with require to the background attribute
@@ -49,6 +51,8 @@ export default class Home extends React.Component {
           `.jpg`);
         break;
     }
+
+    this.props.route.params.UserProps.house = this.state.house;
   }
 
   componentDidMount() {
@@ -63,7 +67,7 @@ export default class Home extends React.Component {
         <View style={{flex: 1}}>
           <View style={{flexDirection: 'row', marginVertical: 20}}>
             <View style={{flex: 4}}>
-              <Text style={styles.titleText}> Welcome, {this.state.name} </Text>
+              <HeaderText > Welcome, {this.state.name}  </HeaderText>
             </View>
             <View style={{flex: 1}}>
               <HogwartsButton
@@ -79,7 +83,7 @@ export default class Home extends React.Component {
             <View style={{backgroundColor: 'rgba(1, 1, 1, 0.3)'}}>
               <View style={styles.mainMsgContainer}>
                 <Text style={styles.mainMsgText}>
-                  House: {capitalizeFirstLetter(getHouse())}
+                  House: {capitalizeFirstLetter(this.state.house)}
                 </Text>
                 <Text style={styles.mainMsgText}>Make new friends</Text>
                 <Text style={styles.mainMsgText}>Discover new spells</Text>

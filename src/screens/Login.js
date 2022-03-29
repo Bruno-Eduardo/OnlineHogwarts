@@ -22,6 +22,7 @@ export default class Login extends React.Component {
     super(props);
     this.state = {
       failed_to_log: false,
+      name: 'Harry Potter',
     };
   }
 
@@ -47,13 +48,14 @@ export default class Login extends React.Component {
                   style={styles.textInput}
                   keyboardType="email-address"
                   placeholder={'WIZARD NAME'}
+                  onChangeText={(name) => this.setState({name})}
                 />
                 <TextInput style={styles.textInput} placeholder={'PASSWORD'} />
                 <HogwartsButton
                   title="LOGIN"
                   screen="Home"
                   navigation={this.props.navigation}
-                  UserProps={{name: 'Harry Potter', spellCount: 0}}
+                  UserProps={{name: this.state.name, spellCount: 0, house: 'Gryffindor'}}
                 />
               </View>
             </View>

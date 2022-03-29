@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import CharsList from '../components/CharsList';
+import HeaderText from '../components/HeaderText';
 import HogwartsButton from '../components/HogwartsButton';
 import SpellsList from '../components/SpellsList';
 import {allSpells, SpellsApi} from '../services/SpellsProvider';
@@ -47,8 +48,7 @@ export default class Spells extends React.Component {
         resizeMode="cover"
         style={{flex: 1, height: undefined, width: undefined}}>
         <View style={styles.container}>
-          <Text>Spells</Text>
-          <Text>Lista a ser implementada</Text>
+          <HeaderText > Spells  </HeaderText>
           <SpellsList
             chars={this.state.allSpells}
             navigation={this.props.navigation}

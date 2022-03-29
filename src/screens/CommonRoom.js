@@ -5,7 +5,7 @@ import {CharsApi} from '../services/HarryCharsApi';
 import CharsList from '../components/CharsList';
 import HogwartsButton from '../components/HogwartsButton';
 import EmptySpace from '../components/EmptySpace';
-import {getHouse} from '../services/UserInforProvider';
+import HeaderText from '../components/HeaderText';
 
 export default class CommonRoom extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class CommonRoom extends React.Component {
       this.props.route.params.UserProps.spellCount + 1;
     this.state = {
       houseChars: [],
-      house: getHouse(),
+      house: this.props.route.params.UserProps.house,
     };
     // switch case over houses and set background image with require to the background attribute
     switch (this.state.house) {
@@ -67,7 +67,7 @@ export default class CommonRoom extends React.Component {
         resizeMode="cover"
         style={{flex: 1, height: undefined, width: undefined}}>
         <View style={styles.container}>
-          <Text>Common Room</Text>
+          <HeaderText > Common Room  </HeaderText>
           <CharsList
             chars={this.state.houseChars}
             navigation={this.props.navigation}

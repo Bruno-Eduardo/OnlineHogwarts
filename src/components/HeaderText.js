@@ -1,19 +1,23 @@
-import * as React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React from 'react';
+import {Text, StyleSheet} from 'react-native';
 
 export default class HeaderText extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <Text style={styles.titleText}>
-        {' '}
-        {this.props.text} {this.props.end}
+      <Text style={[styles.defaultStyle, this.props.style]}>
+        {this.props.children}
       </Text>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  titleText: {
+  // ... add your default style here
+  defaultStyle: {
     textAlignVertical: 'center',
     fontSize: 24,
     color: 'white',
