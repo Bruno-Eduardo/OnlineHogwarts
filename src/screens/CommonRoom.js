@@ -10,6 +10,8 @@ import {getHouse} from '../services/UserInforProvider';
 export default class CommonRoom extends React.Component {
   constructor(props) {
     super(props);
+    this.props.route.params.UserProps.spellCount =
+      this.props.route.params.UserProps.spellCount + 1;
     this.state = {
       houseChars: [],
       house: getHouse(),
