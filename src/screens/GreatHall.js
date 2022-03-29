@@ -8,6 +8,7 @@ import {CharsApi} from '../services/HarryCharsApi';
 export default class GreatHall extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.route.params.UserProps);
     this.state = {
       allChars: [],
     };
@@ -44,6 +45,7 @@ export default class GreatHall extends React.Component {
             title="Return"
             screen="Return"
             navigation={this.props.navigation}
+            UserProps={'I was at Great Hall line 47'}
           />
         </View>
       </ImageBackground>

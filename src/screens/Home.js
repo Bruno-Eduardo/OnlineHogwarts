@@ -17,6 +17,7 @@ const screenSizeHeight = Dimensions.get('window').height;
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.route.params.UserProps);
     this.state = {
       house: getHouse(),
       name: 'NOME A SER IMPLEMENTADO',
@@ -52,7 +53,7 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    console.log('rendsesred');
+    //console.log('rendsesred');
   }
 
   render() {
@@ -71,6 +72,7 @@ export default class Home extends React.Component {
                 title="Spells 🪄"
                 screen="Spells"
                 navigation={this.props.navigation}
+                UserProps={'I was at Home, line 72'}
               />
             </View>
           </View>
@@ -89,11 +91,13 @@ export default class Home extends React.Component {
             title="Join Common Room"
             screen="CommonRoom"
             navigation={this.props.navigation}
+            UserProps={'I was at Home, line 91'}
           />
           <HogwartsButton
             title="Join Great Hall"
             screen="GreatHall"
             navigation={this.props.navigation}
+            UserProps={'I was at Home, line 97'}
           />
         </View>
       </ImageBackground>

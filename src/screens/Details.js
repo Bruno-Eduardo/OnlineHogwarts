@@ -82,6 +82,7 @@ export default class Details extends React.Component {
                 title="Return"
                 screen="Return"
                 navigation={this.props.navigation}
+                UserProps={'I was at Detail, line 85'}
               />
             </View>
           </View>

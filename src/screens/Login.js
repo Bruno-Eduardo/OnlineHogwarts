@@ -16,13 +16,14 @@ const screenSizeHeight = Dimensions.get('window').height;
 
 import HogwartsButton from '../components/HogwartsButton';
 
+const UserProps = 100;
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       failed_to_log: false,
     };
-  }
+  };
 
   render() {
     return (
@@ -52,6 +53,7 @@ export default class Login extends React.Component {
                   title="LOGIN"
                   screen="Home"
                   navigation={this.props.navigation}
+                  UserProps={'I was at Login, line 56'}
                 />
               </View>
             </View>

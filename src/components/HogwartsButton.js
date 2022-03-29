@@ -14,11 +14,11 @@ export default class HogwartsButton extends React.Component {
       animation: 'rubberBand',
     });
 
-    const {screen, navigation} = this.props;
+    const {screen, navigation, UserProps} = this.props;
     if (screen === 'Return') {
       navigation.goBack();
     } else {
-      navigation.navigate(screen, {screen: screen});
+      navigation.navigate(screen, {screen: screen, UserProps: UserProps});
     }
   };
 

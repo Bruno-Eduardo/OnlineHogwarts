@@ -6,7 +6,7 @@ export default class CharsList extends React.Component {
     return (
       <View style={styles.Touchable}>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Details', {item})}>
+          onPress={() => this.props.navigation.navigate('Details', {item, UserProps:this.props.UserProps})}>
           <Text style={styles.TextTitle}> {`${item.name}`} </Text>
           <Text style={styles.TextSubTitle}>
             {' '}
